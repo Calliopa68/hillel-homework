@@ -1,35 +1,75 @@
-let lenghtArray, arrayValues;
+const students = studentsMock.getStudentList(10);
 
-do{
-    lenghtArray = +prompt('Please, provide amont of element in your array (for 5 since 20)','') 
-} while (lenghtArray != lenghtArray || lenghtArray < 5 || lenghtArray > 20)
+const studentsSummaryMark = function() {
+    return students.map((item) => {
+        item.averageMark = avarageMark(item.marks);
+        item.meddiana = middleValue(item.marks);
+        return item
+    })
+    
+}
 
+const avarageMark = marks => {
+    return marks.reduce((a,b) => {
+        result = (a + b)/marks.length;
+        return result
+    }) 
+}
 
-const fillingArray = function () {
-    let array = [];
-    for(let i = 0; i < lenghtArray; i++){
-        arrayValues = +prompt('Provide your element', '' )
-        array.push(arrayValues);   
-    }
-    return array
-
-}();
-const shellSort = function (arr) {
-    var n = arr.length, i = Math.floor(n/2);
-    while (i > 0)
-    { for (var j = 0; j < n; j++)
-        { var k = j, t = arr[j];
-        while (k >= i && arr[k-i] > t)
-        { arr[k] = arr[k-i]; k -= i; }
-        arr[k] = t;
+const middleValue = marks => {
+    let med;
+    let mid = 0;
+    for(let i = 0; i < marks.length; i++){
+        let iter = 0;
+        for(let j = 0; j < marks.length; j++){
+            if(marks[j] === marks[i]){
+                iter++
+                if(iter > mid){
+                    mid = iter;
+                    med = marks[i]
+                }
+            }
         }
-    i = (i==2) ? 1 : Math.floor(i*5/11);
     }
-    return arr;
+    return med
+}
+const listBadStudent = function(studentArr) {
+    const badStudent = studentArr.filter((i) => i.averageMark < 5)
+    console.log('Bad student: ', badStudent)
+}
 
+const addNewStudent = function() {
+    const newStudent = studentsMock.getStudentList(1)[0];
+    newStudent.averageMark = avarageMark(newStudent.marks)
+    students.push(newStudent)   
+    console.log('New student:', students)
 }
-function showResult(arg) {
-    const a = shellSort(arg)
-    alert(a)
+
+const sortedMark = (students) => {
+    const mapped =  students.map((el) => {
+        return { name: el.name, averageMark: el.averageMark};
+
+    });
+    mapped.sort(function(a, b) {
+        if (a.averageMark > b.averageMark) {
+        return -1; }
+        else {
+        return 1; }
+    });
+        console.log('Sort:', mapped)
+
+
+    // sort = students.sort(function (a, b){ 
+    //     if (a.averageMark > b.averageMark){
+    //         return -1
+    //     }else{
+    //         return 1;
+    //     }
+    // })
 }
-showResult(fillingArray)
+
+// console.log(studentsSummaryMark())
+// b.filter((i) => i.averageMark < 5)
+listBadStudent(studentsSummaryMark());
+addNewStudent();
+sortedMark(students);

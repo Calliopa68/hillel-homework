@@ -4,7 +4,8 @@ function main () {
         return number;
     }  
     const fibonacci = (fib) => {
-        let a = b = 1;
+        let a = 0;
+        let b = 1;
         for (let i = 3; i <= fib; i++) {
             let c = a + b;
             a = b;

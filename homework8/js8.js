@@ -3,18 +3,17 @@ function main () {
         const number = +prompt('Choose a number','');
         return number;
     }  
-    const fibonnaci = (fib) => {
-        let a = 1;
-        let b = 1;
+    const fibonacci = (fib) => {
+        let a = b = 1;
         for (let i = 3; i <= fib; i++) {
-        let c = a + b;
-        a = b;
-        b = c;
+            let c = a + b;
+            a = b;
+            b = c;
         }
         return b;
     }
     const showResult = () => {
-    alert(fibonnaci(chooseANumber()));
+    alert(fibonacci(chooseANumber()));
     }
     showResult();
 };

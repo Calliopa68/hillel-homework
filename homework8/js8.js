@@ -4,14 +4,12 @@ function main () {
         return number;
     }  
     const fibonacci = (fib) => {
-        let a = 0;
-        let b = 1;
-        for (let i = 3; i <= fib; i++) {
-            let c = a + b;
-            a = b;
-            b = c;
+        if(fib <= 1){
+            return[ 0, 1 ]
+        }else{
+            const [prev, next] = fibonacci( fib - 1 )
+            return [next, prev + next]
         }
-        return b;
     }
     const showResult = () => {
     alert(fibonacci(chooseANumber()));

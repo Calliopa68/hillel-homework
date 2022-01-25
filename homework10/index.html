@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <title>Homework10</title>
+</head>
+<body>
+    <div class="contrainer">
+        <div class="wrapper">
+            <input type="text" id="input" class="nes-input"> 
+            <button id="submit" class="nes-btn is-success">Add</button>
+        </div>
+        <ul id="to-do-list"></ul>
+    </div>
+    <script type="text/html" id="to-do-item">
+        <div class="item">
+            <input type="checkbox" class="checkbox">
+            <span>{{inputValue}}</span>
+            <button class="nes-btn is-error">X</button>
+        </div>
+    </script>
+</body>
+</html>

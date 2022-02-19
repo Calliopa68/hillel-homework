@@ -1,0 +1,27 @@
+.contrainer{
+    width: 600px;
+    margin:20px;
+    display: flex;
+    flex-direction: column;
+}
+.wrapper{
+    display: flex;
+}
+.nes-btn{
+    padding: 10px;
+    margin-left:20px
+}
+li{
+    list-style: none;
+}
+.item{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.checkbox{
+    margin-right: 10px;
+}
+.done-checkbox{
+    text-decoration: line-through;
+}

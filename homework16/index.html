@@ -5,22 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>homework16</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-    <section class="nes-container">
+    <section class="container">
+        <div class="list-wrapper">
+            <div class="list-container" id="user-list">
+
+            </div>
+            
+            <div class="button-container">
+                <button type="button" class="nes-btn is-success" id="button-prev">Prev</button>
+                <button type="button" class="nes-btn is-error" id="button-next">Next</button>
+            </div>
+        </div>
+        <div id="form">
+            <div id="form-data">
+                <input type="text" name="name" id="form-name" placeholder="Name" />
+                <input type="text" name="email" id="form-email" placeholder="E-mail" />
+            </div>
+            <button id="send-form">Send</button>
+        </div>
+      </section>
+      <script type="text/template" id="user-card-template">
         <div class="card">
             <div class="avatar">
-                <img alt="member" src="">
+                <img alt="{{first_name}}" src="{{avatar}}">
                 <div class = "data">
-                    <p>ID: </p>
-                    <p>First Name: </p>
-                    <p>Last Name</p>
-                    <p>Email:</p>
+                    <p>ID: {{id}}</p>
+                    <p>First Name: {{first_name}}</p>
+                    <p>Last Name: {{last_name}}</p>
+                    <p>Email: {{email}}</p>
                 </div>
             </div>
         </div>
-      </section>
+      </script>
 </body>
 </html>

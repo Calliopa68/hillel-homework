@@ -1,0 +1,4 @@
+.ContentWrap{
+    grid-area: content;
+    background-color: blue;
+}
